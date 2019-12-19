@@ -15,4 +15,9 @@ func ExampleBuildFactory() {
 		angularButton := factory.CreateButton()
 		angularButton.Paint()
 	}
+
+	// Output:
+	// ReactButton
+	// VueButton
+	// AngularButton
 }
