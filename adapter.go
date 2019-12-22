@@ -1,35 +1,52 @@
 package patterns
 
-import "fmt"
+// ReactTranscode struct
+type ReactTranscode struct{}
 
-// Logger interface
-type Logger interface {
-	Log(string)
+// Write method for ReactTranscode struct
+func (r *ReactTranscode) Write(s string) string {
+	return "From ReactTranscode: " + s
 }
 
-// ReactLog struct
-type ReactLog struct{}
+// VueTranscode struct
+type VueTranscode struct{}
 
-// Log method for ReactLog struct
-func (l *ReactLog) Log(s string) {
-	fmt.Printf("Log from ReactLog: %s", s)
+// Convert method for VueTranscode struct
+func (v *VueTranscode) Convert(s string) string {
+	return "From VueTranscode: " + s
 }
 
-// Printer interface
-type Printer interface {
-	Print(string)
+// AngularTranscode struct
+type AngularTranscode struct{}
+
+// Interprete method for AngularTranscode struct
+func (v *AngularTranscode) Interprete(s string) string {
+	return "From AngularTranscode: " + s
 }
 
-// PrinterAdapter struct
-type PrinterAdapter struct {
-	Printer Logger
+// Transcoder interface
+type Transcoder interface {
+	Transcode(string) string
 }
 
-// Print method on PrinterAdapter struct
-func (p *PrinterAdapter) Print(s string) {
-	if p.Printer != nil {
-		p.Printer.Log(s)
-	} else {
-		fmt.Println(s)
+// TranscoderAdapter struct
+type TranscoderAdapter struct {
+	fileType string
+}
+
+// Transcode method on TranscoderAdapter struct
+func (trans *TranscoderAdapter) Transcode(s string) string {
+	if trans.fileType == "react" {
+		return (&ReactTranscode{}).Write(s)
 	}
+
+	if trans.fileType == "vue" {
+		return (&VueTranscode{}).Convert(s)
+	}
+
+	if trans.fileType == "angular" {
+		return (&AngularTranscode{}).Interprete(s)
+	}
+
+	return "Unrecognize filType " + s
 }
