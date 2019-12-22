@@ -2,7 +2,7 @@ package patterns
 
 import "testing"
 
-func TestPrinterAdapter(t *testing.T) {
+func TestTranscoderAdapter(t *testing.T) {
 
 	var tests = []struct {
 		name     string
