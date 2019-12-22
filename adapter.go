@@ -48,5 +48,5 @@ func (trans *TranscoderAdapter) Transcode(s string) string {
 		return (&AngularTranscode{}).Interprete(s)
 	}
 
-	return "Unrecognize filType " + s
+	return "Unrecognized fileType " + s
 }
