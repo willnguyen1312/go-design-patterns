@@ -7,6 +7,7 @@ import (
 // LibraryDecorator interface
 type LibraryDecorator interface {
 	Decorate() string
+	Add(library LibraryDecorator)
 }
 
 // ReactLibrary struct
