@@ -11,7 +11,7 @@ func ExampleBox() {
 	folder2.Search("Aha")
 
 	// Output:
-	// 	Serching recursively for Aha in box folder2
+	// Serching recursively for Aha in box folder2
 	// Serching recursively for Aha in box folder1
 	// Searching for item Aha in file file1
 }
