@@ -53,31 +53,3 @@ func (c *CareTaker) AddMemento(m *Memento) {
 func (c *CareTaker) GetMenento(index int) *Memento {
 	return c.mementoArray[index]
 }
-
-// func main() {
-// 	CareTaker := &CareTaker{
-// 		mementoArray: make([]*Memento, 0),
-// 	}
-// 	TextArea := &TextArea{
-// 		Content: "A",
-// 	}
-// 	fmt.Printf("Originator Current
-// 	// CreateMemento method of TextArea structState: %s\n", TextArea.getState())
-// 	CareTaker.
-// 	// SetState method of TextArea structaddMemento(TextArea.CreateMemento())
-// 	TextArea.SetState("B")
-// 	fmt.Printf("Originator Current
-// 	// CreateMemento method of TextArea structState: %s\n", TextArea.getState())
-// 	CareTaker.
-// 	// SetState method of TextArea structaddMemento(TextArea.CreateMemento())
-// 	TextArea.SetState("C")
-// 	fmt.Printf("Originator Current
-// 	// CreateMemento method of TextArea structState: %s\n", TextArea.getState())
-// 	CareTaker.
-// 	//AddMemento(TextArea.CreateMemento())
-// 	TextArea.RestoreState(CareTaker.GetMenento(1))
-// 	fmt.Printf
-// 	//("Restored to State: %s\n", TextArea.getState())
-// 	TextArea.RestoreState(CareTaker.GetMenento(0))
-// 	fmt.Printf("Restored to State: %s\n", TextArea.getState())
-// }
