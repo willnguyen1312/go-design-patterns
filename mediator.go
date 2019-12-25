@@ -4,11 +4,17 @@ import (
 	"fmt"
 )
 
-// Render interface
-type Render interface {
+// Renderer interface
+type Renderer interface {
 	RequestRender()
 	FinishRender()
 	AllowArrival()
+}
+
+// Mediator interface
+type Mediator interface {
+	canRender(Renderer) bool
+	notifyReady()
 }
 
 // ReactRenderer struct
@@ -61,16 +67,10 @@ func (g *VueRenderer) AllowArrival() {
 	fmt.Println("VueRenderer: Rendering Allowed, Rendering")
 }
 
-// Mediator interface
-type Mediator interface {
-	canRender(Render) bool
-	notifyReady()
-}
-
 // RenderingManager struct
 type RenderingManager struct {
 	isPlatformFree   bool
-	renderersInQueue []Render
+	renderersInQueue []Renderer
 }
 
 // NewRenderingManger create a new RenderingManager
@@ -80,7 +80,7 @@ func NewRenderingManger() *RenderingManager {
 	}
 }
 
-func (s *RenderingManager) canRender(t Render) bool {
+func (s *RenderingManager) canRender(t Renderer) bool {
 	if s.isPlatformFree {
 		s.isPlatformFree = false
 		return true
