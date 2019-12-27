@@ -12,12 +12,10 @@ type State interface {
 
 // LightBall struct
 type LightBall struct {
-	On  State
-	Off State
-
+	On           State
+	Off          State
 	CurrentState State
-
-	Battery int
+	Battery      int
 }
 
 // NewLightBall function retun a new Lightball
